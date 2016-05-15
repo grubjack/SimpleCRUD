@@ -55,8 +55,8 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<User> getUsersByName(String name) {
-        List<User> users = (List<User>) getCurrentSession()
-                .createCriteria(User.class).add(Restrictions.ilike("name", name, MatchMode.ANYWHERE)).list();
+//        List<User> users = (List<User>) getCurrentSession().createCriteria(User.class).add(Restrictions.ilike("name", name, MatchMode.ANYWHERE)).list();
+        List<User> users = (List<User>) getCurrentSession().createCriteria(User.class).add(Restrictions.eq("name", name).ignoreCase()).list();
         return users;
     }
 
